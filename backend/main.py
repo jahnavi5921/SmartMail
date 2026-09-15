@@ -121,10 +121,10 @@ app.add_middleware(
     CORSMiddleware,
 
     allow_origins=[
-        "http://localhost:5173",
-        "http://127.0.0.1:5173"
-    ],
-
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
+    "https://smartmail-frontend-r0s5.onrender.com"
+],
     allow_credentials=True,
 
     allow_methods=["*"],
@@ -1148,7 +1148,7 @@ def gmail_login(
 # =========================================================
 
 @app.get("/auth/callback")
-def gmail_callback(
+async def gmail_callback(
     request: Request,
     code: str,
     state: str
@@ -1204,18 +1204,8 @@ def gmail_callback(
             credentials.to_json()
         )
 
-    return {
-        "message": (
-            "Gmail authorization successful"
-        ),
+         await sync_gmail()
 
-        "token_received": (
-            credentials.token
-            is not None
-        ),
-
-        "refresh_token_received": (
-            credentials.refresh_token
-            is not None
-        )
-    }
+    return RedirectResponse(
+        "https://smartmail-frontend-r0s5.onrender.com"
+    )
