@@ -1204,7 +1204,7 @@ async def gmail_callback(
             credentials.to_json()
         )
 
-         await sync_gmail()
+    await sync_gmail()
 
     return RedirectResponse(
         "https://smartmail-frontend-r0s5.onrender.com"
