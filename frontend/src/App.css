@@ -1,0 +1,327 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f5f7fb;
+  color: #1f2937;
+}
+
+button {
+  font-family: inherit;
+}
+
+.app {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* Sidebar */
+
+.sidebar {
+  width: 250px;
+  min-height: 100vh;
+  background: #172033;
+  color: white;
+  padding: 28px 18px;
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.sidebar h1 {
+  font-size: 28px;
+  margin: 0 0 35px 10px;
+  letter-spacing: -0.5px;
+}
+
+.sidebar button {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #cbd5e1;
+  text-align: left;
+  padding: 14px 16px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.sidebar button:hover {
+  background: #26334d;
+  color: white;
+}
+
+.sidebar button.active {
+  background: #334155;
+  color: white;
+  font-weight: bold;
+}
+
+/* Main content */
+
+.main-content {
+  margin-left: 250px;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  padding: 40px 50px;
+}
+
+.main-content header {
+  margin-bottom: 25px;
+}
+
+.main-content header h2 {
+  margin: 0;
+  font-size: 30px;
+}
+
+/* Email list */
+
+.email-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 900px;
+}
+
+.email-card {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  transition: 0.2s;
+}
+
+.email-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.email-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.email-top strong {
+  font-size: 16px;
+}
+
+.email-card h3 {
+  margin: 8px 0;
+  font-size: 19px;
+  color: #111827;
+}
+
+.email-card p {
+  margin: 0;
+  color: #6b7280;
+  line-height: 1.5;
+}
+
+.important-label {
+  background: #fff4cc;
+  color: #9a6700;
+  padding: 5px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+/* Rules */
+
+.rules-card {
+  background: white;
+  max-width: 700px;
+  padding: 30px;
+  border-radius: 14px;
+  border: 1px solid #e5e7eb;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.rules-card h3 {
+  margin-top: 0;
+  font-size: 22px;
+}
+
+.rules-card p {
+  color: #6b7280;
+  line-height: 1.6;
+}
+
+.add-rule {
+  border: none;
+  background: #172033;
+  color: white;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.add-rule:hover {
+  background: #26334d;
+}
+
+/* Mobile */
+
+@media (max-width: 700px) {
+  .sidebar {
+    width: 190px;
+  }
+
+  .main-content {
+    margin-left: 190px;
+    width: calc(100% - 190px);
+    padding: 25px;
+  }
+
+  .sidebar h1 {
+    font-size: 22px;
+  }
+
+  .sidebar button {
+    font-size: 14px;
+  }
+}
+/* Rules form */
+
+.rules-card form {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 600px;
+}
+
+.rules-card label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 8px;
+}
+
+.rules-card select,
+.rules-card input {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  background: white;
+  color: #111827;
+  font-size: 15px;
+  outline: none;
+}
+
+.rules-card select:focus,
+.rules-card input:focus {
+  border-color: #64748b;
+  box-shadow: 0 0 0 3px rgba(100, 116, 139, 0.15);
+}
+
+.rule-form-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.add-rule,
+.cancel-button {
+  border: none;
+  padding: 11px 18px;
+  border-radius: 8px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.add-rule {
+  background: #172033;
+  color: white;
+}
+
+.add-rule:hover {
+  background: #26334d;
+}
+
+.cancel-button {
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.rules-card hr {
+  border: none;
+  border-top: 1px solid #e5e7eb;
+  margin: 28px 0;
+}
+
+/* Existing rules */
+
+.rules-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 600px;
+}
+
+.rule-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 16px;
+  background: #f8fafc;
+  border: 1px solid #e5e7eb;
+  border-radius: 9px;
+}
+
+.rule-item > div:first-child {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.rule-item strong {
+  text-transform: capitalize;
+  font-size: 13px;
+  color: #64748b;
+}
+
+.rule-item span {
+  font-size: 15px;
+  color: #111827;
+  font-weight: 500;
+}
+
+.rule-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.rule-actions button {
+  border: 1px solid #d1d5db;
+  background: white;
+  color: #374151;
+  padding: 6px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.rule-actions button:hover {
+  background: #f1f5f9;
+}
+.email-card {
+  overflow: hidden;
+  min-width: 0;
+}
+
+.email-card p {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+  white-space: normal;
+  line-height: 1.6;
+}
